@@ -1,179 +1,187 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
 body {
-    background: #000;
+  background-color: #111;
+  color: white;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0.5;
-    width: 100%;
-    height: 100%;
-    background: url("images/hero-img.jpg");
-    background-position: center;
+.dropdown-container {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding-top: 3px;
+  display: none;
 }
 
-nav {
-    position: fixed;
-    padding: 25px 60px;
-    z-index: 1;
+.dropdown {
+  background-color: black;
+  padding: 8px;
+  border-radius: 4px;
+  width: 100px;
 }
 
-nav a img {
-    width: 167px;
+.dropdown span {
+  cursor: pointer;
 }
 
-.form-wrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    border-radius: 4px;
-    padding: 70px;
-    width: 450px;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, .75);
+.original__movies {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.form-wrapper h2 {
-    color: #fff;
-    font-size: 2rem;
+.profile:hover .dropdown-container {
+  display: block;
 }
 
-.form-wrapper form {
-    margin: 25px 0 65px;
+.original__movies,
+.movies__container {
+  padding-left: 50px;
+  display: flex;
+  overflow-x: scroll;
 }
 
-form .form-control {
-    height: 50px;
-    position: relative;
-    margin-bottom: 16px;
+.original__movies::-webkit-scrollbar {
+  display: none;
 }
 
-.form-control input {
-    height: 100%;
-    width: 100%;
-    background: #333;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 1rem;
-    padding: 0 20px;
+.original__movies img {
+  margin-right: 10px;
+  height: 250px;
+  width: auto;
 }
 
-.form-control input:is(:focus, :valid) {
-    background: #444;
-    padding: 16px 20px 0;
+.original__movies img,
+.movies__container img {
+  transition: all 0.2s ease-out;
+  cursor: pointer;
 }
 
-.form-control label {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1rem;
-    pointer-events: none;
-    color: #8c8c8c;
-    transition: all 0.1s ease;
+.original__movies img:hover,
+.movies__container img:hover {
+  transform: scale(1.1);
 }
 
-.form-control input:is(:focus, :valid)~label {
-    font-size: 0.75rem;
-    transform: translateY(-130%);
+.movies__container img {
+  margin-right: 10px;
+  width: 200px;
 }
 
-form button {
-    width: 100%;
-    padding: 16px 0;
-    font-size: 1rem;
-    background: #e50914;
-    color: #fff;
-    font-weight: 500;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    margin: 25px 0 10px;
-    cursor: pointer;
-    transition: 0.1s ease;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 15px;
 }
 
-form button:hover {
-    background: #c40812;
+.logo > img {
+  width: 120px;
 }
 
-.form-wrapper a {
-    text-decoration: none;
+.profile {
+  position: relative;
 }
 
-.form-wrapper a:hover {
-    text-decoration: underline;
+.profile > img {
+  width: 40px;
 }
 
-.form-wrapper :where(label, p, small, a) {
-    color: #b3b3b3;
+img {
+  width: 100px;
 }
 
-form .form-help {
-    display: flex;
-    justify-content: space-between;
+.featured {
+  height: 400px;
+  position: relative;
+  background-image: url('https://image.tmdb.org/t/p/original//3lBDg3i6nn5R2NKFCJ6oKyUo2j5.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 0 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-form .remember-me {
-    display: flex;
+.featured::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 7.4rem;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.61),
+    #111
+  );
 }
 
-form .remember-me input {
-    margin-right: 5px;
-    accent-color: #b3b3b3;
+.netflixOriginals h2,
+.movies__header h2 {
+  padding-left: 30px;
 }
 
-form .form-help :where(label, a) {
-    font-size: 0.9rem;
+.featured h2 {
+  font-size: 50px;
+  margin: 0;
+  z-index: 10;
 }
 
-.form-wrapper p a {
-    color: #fff;
+.featured .featured__buttons {
+  z-index: 10;
 }
 
-.form-wrapper small {
-    display: block;
-    margin-top: 15px;
-    color: #b3b3b3;
+.featured .featured__buttons button {
+  font-size: 16px;
+  color: white;
+  background-color: rgba(109, 109, 110, 0.7);
+  border: none;
+  padding: 8px 24px;
+  border-radius: 4px;
 }
 
-.form-wrapper small a {
-    color: #0071eb;
+.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 740px) {
-    body::before {
-        display: none;
-    }
+.featured .featured__buttons .button__play {
+  background-color: white;
+  color: black;
+}
 
-    nav, .form-wrapper {
-        padding: 20px;
-    }
+.button__play i {
+  margin-right: 6px;
+}
 
-    nav a img {
-        width: 140px;
-    }
+.featured .featured__description {
+  max-width: 350px;
+  font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  z-index: 10;
+}
 
-    .form-wrapper {
-        width: 100%;
-        top: 43%;
-    }
+.modal-body iframe {
+  width: 100%;
+}
 
-    .form-wrapper form {
-        margin: 25px 0 40px;
-    }
+.modal-body span {
+  color: #333;
+  width: 100%;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
 }
